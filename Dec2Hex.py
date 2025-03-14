@@ -25,21 +25,17 @@ def decimal_to_hex(decimal_value):
     return hexadecimal
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Error: Please provide exactly one argument.")
-        sys.exit(1)
+    while True:
+        if len(sys.argv) != 2:
+            print("Error: Please provide exactly one integer argument.")
+            sys.exit(1)
 
-    input_value = sys.argv[1]
-
-    try:
-        # Try to convert the input to an integer (decimal)
-        decimal_value = int(input_value)
-        decimal_to_hex(decimal_value)
-    except ValueError:
-        # Handle hexadecimal input (e.g., "A", "FF")
         try:
-            decimal_value = int(input_value, 16)  # Convert from hex to decimal
+            # Attempt to convert the argument to an integer
+            decimal_value = int(sys.argv[1])
             decimal_to_hex(decimal_value)
+            break  # Exit the loop if the input is valid
         except ValueError:
-            print("Error: Input must be a valid integer or hexadecimal string.")
+            # Handle the case where the input is not an integer
+            print("Error: Input must be a valid integer. Please try again.")
             sys.exit(1)
