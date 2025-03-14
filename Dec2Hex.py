@@ -7,6 +7,10 @@ def decimal_to_hex(decimal_value):
 
     print(f"Converting the Decimal Value {num} to Hex...")
 
+<<<<<<< HEAD
+=======
+    # Handle the case when the input is 0
+>>>>>>> origin/main
     if num == 0:
         hexadecimal = "0"
     else:
@@ -16,6 +20,7 @@ def decimal_to_hex(decimal_value):
             num //= 16
 
     print(f"Hexadecimal representation is: {hexadecimal}")
+<<<<<<< HEAD
     return hexadecimal
 
 if __name__ == "__main__":
@@ -29,3 +34,16 @@ if __name__ == "__main__":
         print("Error: Input must be a valid integer.")
         sys.exit(1)
 
+=======
+    return hexadecimal  # Return the hexadecimal value for testing
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        try:
+            decimal_value = int(sys.argv[1])
+            decimal_to_hex(decimal_value)
+        except ValueError:
+            print("Error: Please provide a valid integer.")
+    else:
+        print("Usage: python Dec2Hex.py <decimal_number>")
+>>>>>>> origin/main
