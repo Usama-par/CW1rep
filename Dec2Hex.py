@@ -26,14 +26,20 @@ def decimal_to_hex(decimal_value):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Error: Please provide exactly one integer argument.")
+        print("Error: Please provide exactly one argument.")
         sys.exit(1)
 
+    input_value = sys.argv[1]
+
     try:
-        # Attempt to convert the argument to an integer
-        decimal_value = int(sys.argv[1])
+        # Try to convert the input to an integer (decimal)
+        decimal_value = int(input_value)
         decimal_to_hex(decimal_value)
     except ValueError:
-        # Handle the case where the input is not an integer
-        print("Error: Input must be a valid integer.")
-        sys.exit(1)
+        # Handle hexadecimal input (e.g., "A", "FF")
+        try:
+            decimal_value = int(input_value, 16)  # Convert from hex to decimal
+            decimal_to_hex(decimal_value)
+        except ValueError:
+            print("Error: Input must be a valid integer or hexadecimal string.")
+            sys.exit(1)
